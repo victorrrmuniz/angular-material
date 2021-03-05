@@ -18,6 +18,8 @@ export class SidenavComponent implements OnInit {
   isScreenSmall: boolean;
 
   users: Observable<User[]>;
+  isDarkTheme: boolean = false;
+  dir: string = 'ltr'
 
   constructor(private breakpointObserver: BreakpointObserver,
     private userService: UserService,
@@ -40,6 +42,14 @@ export class SidenavComponent implements OnInit {
           this.sidenav.close()
         }
       })
+  }
+
+  toggleTheme() {
+    this.isDarkTheme = !this.isDarkTheme;
+  }
+  
+  toggleDir() {
+    this.dir = this.dir == 'ltr' ? 'rtl' : 'ltr';
   }
 
 }
